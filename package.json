@@ -1,0 +1,14 @@
+{
+  "name": "diffout",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "diffout": "index.js"
+  },
+  "main": "index.js",
+  "author": "e2goon@gmail.com",
+  "license": "MIT",
+  "volta": {
+    "node": "20.10.0"
+  }
+}
