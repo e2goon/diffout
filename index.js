@@ -4,6 +4,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const [fileListPath] = process.argv.slice(2);
+
+if (!fileListPath) {
+  console.log(
+    '사용 방법:\n\n' +
+    '1. 변경을 시작한 커밋 해시를 확보합니다.\n' +
+    '2. 다음 명령어로 변경된 파일 목록을 sample.txt에 저장합니다:\n' +
+    '   git diff --name-only {시작커밋해시} HEAD > sample.txt\n' +
+    '3. "diffout sample.txt"를 실행하여 변경된 파일을 추출합니다.\n' +
+    '4. "output" 폴더에서 추출된 파일을 확인합니다.'
+  );
+  process.exit();
+}
+
 const newFolder = path.join(process.cwd(), 'output', fileListPath);
 const filesToCopy = fs.readFileSync(fileListPath, "utf8").split("\n");
 
